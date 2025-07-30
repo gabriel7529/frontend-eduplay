@@ -1125,12 +1125,7 @@ def main():
     apply_login_theme()
 
     # Configurar página
-    st.set_page_config(
-        page_title="EduPlay - Plataforma Educativa",
-        page_icon="🎓",
-        layout="wide",  # Cambié a wide para mejor uso del espacio
-        initial_sidebar_state="expanded"
-    )
+    
 
     # Verificar contraseña PRIMERO
     if not check_password():
