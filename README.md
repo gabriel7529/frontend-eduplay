@@ -1,59 +1,68 @@
-# PDF to Quiz
+# EduPlay
 
-## Important
+**Descripción general**
+EduPlay es una plataforma educativa gamificada que transforma automáticamente materiales de estudio (PDFs, apuntes, presentaciones) en actividades interactivas (trivias, flashcards, retos) mediante IA.
 
-If you want to tryout the clone in better of this App on OpenAI GPT, checkout my [GPTs Agent PDF-to-Quizz](https://chat.openai.com/g/g-oMR8x3UTD-pdf-to-quizz) online, it's free but you need a GPT Plus
+**Características técnicas principales**
+- **Generación automática con IA**
+  Convierte documentos en juegos interactivos, liberando al usuario de la creación manual de preguntas.
+- **Arquitectura multiplataforma**
+  Aplicación web y PWA accesible desde cualquier navegador en desktop o móvil.
+- **Infraestructura en la nube**
+  Almacenamiento de archivos en la nube, procesamiento escalable y respuesta en menos de 2 s para el 95 % de las solicitudes.
+- **Gamificación avanzada**
+  Niveles, insignias, rankings y recompensas para maximizar la motivación y el engagement.
+- **Panel de análisis para docentes**
+  Dashboard con métricas de uso, rendimiento y progreso de cada estudiante en tiempo real.
+- **Seguridad y alta disponibilidad**
+  Certificados TLS, cifrado en tránsito y reposo, backups diarios y SLA de 99.9 %.
 
-## Usage
+---
 
-Upload a multiple page PDF and generate a quiz with multiple options. For each page 2 questions will be generated.
+# Configuración en Español (PDF a Quiz)
 
-This leverage Langchain library to abstract the LLM (Large Language Model) calls.
+## Importante
+Para probar esta app clonada en OpenAI GPT, visita mi [GPTs Agent PDF-to-Quizz](https://chat.openai.com/g/g-oMR8x3UTD-pdf-to-quizz). Es gratis, pero necesitas GPT Plus.
 
-The UI is based on Streamlit
+## Uso
+1. Sube un PDF de varias páginas.
+2. La app genera un cuestionario interactivo con opciones múltiples (2 preguntas por página).
 
-Here is an exemple PDF (sorry in french but you can get the idea...)
+Esta aplicación utiliza LangChain para abstraer las llamadas al modelo de lenguaje y Streamlit para la interfaz.
+
+Ejemplo de PDF:
 
 ![PDF sample](img/PDF-sample.png)
 
-Will generate the following interractive quiz questions:
+Y genera:
 
-![PDF sample](img/quiz-reponse.png)
+![Quiz sample](img/quiz-reponse.png)
 
+## Prerrequisitos
+- Clave de API de OpenAI (https://platform.openai.com/account/api-keys).
+- Se recomienda el modelo **gpt-3.5-turbo** para mantener el coste bajo, incluso con PDFs de hasta ~100 páginas.
 
-## Pre-requisite
-
-You need an OpenAI API key from https://platform.openai.com/account/api-keys
-
-Keep in mind this is not free BUT the with the usage of **gpt-3.5-turbo** it's not expensive at all unless you drop really big PDF (more than 100 pages).
-
-![Open AI key](img/OPENAI-KEY.png)
-
-Once you have your API key you can install it in your terminal like this:
-
-``` sh
-export OPENAI_API_KEY=[Your-API-key]
+```bash
+export OPENAI_API_KEY=TU_API_KEY
 ```
+## Instrucciones
 
 
-## Instructions
-
-
-To install:
+Para instalar:
 ``` sh
 pip install -r requirements.txt
 ```
 
-## Run
+## Ejecutar
 
 
 
-To run:
+Ejecutas con:
 ```sh
 streamlit run ui.py
 ```
 
-To run on docker
+Para ejecutar en docker
 ```sh
 docker build -t pdf-to-quizz .
 docker run -e OPENAI_API_KEY=[your-api-key] -p 8501:8501 pdf-to-quizz
